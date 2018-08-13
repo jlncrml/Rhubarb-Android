@@ -1,19 +1,19 @@
-package co.jcdesign.rhubarb
+package co.jcdesign.rhubarb.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Toast
+import co.jcdesign.rhubarb.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.activity_phone_entry.*
 import java.util.concurrent.TimeUnit
 
-class PhoneEntryActivity : AppCompatActivity() {
+private const val KEY_IS_VERIFICATION_IN_PROGRESS = "isVerificationInProgress"
 
-    private val KEY_IS_VERIFICATION_IN_PROGRESS = "isVerificationInProgress"
+class PhoneEntryActivity : AppCompatActivity() {
 
     private val callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks by lazy {
         object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
