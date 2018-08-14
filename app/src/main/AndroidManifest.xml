@@ -12,7 +12,7 @@
         <activity
             android:name=".activities.WelcomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoTitleBar"/>
+            android:theme="@style/NoTitleBar" />
         <activity
             android:name=".activities.PhoneEntryActivity"
             android:screenOrientation="portrait"
@@ -32,8 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.EditInfoActivity"
+        <activity
+            android:name=".activities.EditInfoActivity"
             android:label="Edit Info" />
+        <activity android:name=".activities.EditFavsActivity"></activity>
     </application>
 
 </manifest>

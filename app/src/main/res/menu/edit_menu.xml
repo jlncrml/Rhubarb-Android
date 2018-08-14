@@ -4,12 +4,12 @@
 
     <item android:id="@+id/edit_menu_cancel"
         android:title="Cancel"
-        android:icon="@drawable/ic_cancel_24dp"
+        android:icon="@drawable/ic_cancel_32dp"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/edit_menu_done"
         android:title="Done"
-        android:icon="@drawable/ic_done_24dp"
+        android:icon="@drawable/ic_done_32dp"
         app:showAsAction="ifRoom" />
 
 </menu>

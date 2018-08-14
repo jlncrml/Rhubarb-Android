@@ -21,13 +21,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
-                android:text="Name"
+                android:text="Food"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/nameEditText"
+                android:id="@+id/favFoodEditText"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
                 android:layout_marginEnd="24dp"
@@ -35,7 +35,6 @@
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -46,22 +45,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:text="Birthday"
+                android:text="Music"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/favFoodEditText" />
 
             <EditText
-                android:id="@+id/birthdayEditText"
+                android:id="@+id/favMovieEditText"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:cursorVisible="false"
                 android:ems="10"
-                android:inputType="none"
-                android:text="Name"
+                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -72,19 +69,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:text="Gender"
+                android:text="Movie"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/birthdayEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/favMovieEditText" />
 
-            <Spinner
-                android:id="@+id/genderSpinner"
+            <EditText
+                android:id="@+id/favMusicEditText"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
-                android:layout_marginEnd="48dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:entries="@array/gender_array"
+                android:ems="10"
+                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -95,28 +93,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:text="About You"
+                android:text="Book"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/genderSpinner" />
+                app:layout_constraintTop_toBottomOf="@+id/favMusicEditText" />
 
             <EditText
-                android:id="@+id/aboutYouEditText"
+                android:id="@+id/favBookEditText"
                 android:layout_width="0dp"
-                android:layout_height="260dp"
-                android:layout_marginBottom="24dp"
+                android:layout_height="52dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp"
-                android:singleLine="false"
-                android:text="About You"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView14" />
 

@@ -53,7 +53,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="48dp"
-                android:background="@color/lighter_gray"
+                android:background="@drawable/profile_section_background"
                 app:layout_constraintBottom_toBottomOf="@id/favsConstraintLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -190,7 +190,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="48dp"
-                android:background="@color/lighter_gray"
+                android:background="@drawable/profile_section_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -306,7 +306,7 @@
             </android.support.constraint.ConstraintLayout>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/editFavsButton"
                 android:layout_width="220dp"
                 android:layout_height="52dp"
                 android:background="@drawable/curved_button_gradient_background"

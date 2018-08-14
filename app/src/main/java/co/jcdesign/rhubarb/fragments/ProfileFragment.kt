@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import co.jcdesign.rhubarb.models.CurrentUser
 import co.jcdesign.rhubarb.R
+import co.jcdesign.rhubarb.activities.EditFavsActivity
 import co.jcdesign.rhubarb.activities.EditInfoActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -23,6 +24,10 @@ class ProfileFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         editInfoButton.setOnClickListener {
             val intent = Intent(context, EditInfoActivity::class.java)
+            startActivity(intent)
+        }
+        editFavsButton.setOnClickListener {
+            val intent = Intent(context, EditFavsActivity::class.java)
             startActivity(intent)
         }
         setupProfile()
