@@ -1,6 +1,8 @@
 package co.jcdesign.rhubarb.models
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.net.Uri
 import android.text.format.DateFormat
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -10,16 +12,23 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.GeoPoint
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageMetadata
+import com.google.firebase.storage.UploadTask
+import java.io.ByteArrayOutputStream
 import java.util.*
 import kotlin.collections.HashMap
 
+private const val COMPRESSION_AMOUNT = 70
+private const val CONTENT_TYPE = "image/jpg"
+
 object CurrentUser {
 
-    private val uid: String by lazy {
+    val uid: String by lazy {
         FirebaseAuth.getInstance().uid!!
     }
 
-    var photos: ArrayList<String> = ArrayList()
+    var photos = ArrayList<Photo>()
         private set
     var name: String? = null
         private set
@@ -58,6 +67,9 @@ object CurrentUser {
         private set
     var isMessageNotificationsSettingOn: Boolean? = null
         private set
+
+    val profilePhoto
+        get() = if (photos.size > 0) photos.first() else null
 
     val ref = {
         FirebaseFirestore.getInstance().collection("users").document(uid)
@@ -113,6 +125,27 @@ object CurrentUser {
                 .addOnFailureListener(onFailureListener)
     }
 
+    fun uploadImage(bitmap: Bitmap, onSuccessListener: OnSuccessListener<Photo>, onFailureListener: OnFailureListener) {
+
+        val filename = UUID.randomUUID().toString()
+        val storageRef = FirebaseStorage.getInstance().getReference("/users/$uid/$filename")
+
+        val byteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, COMPRESSION_AMOUNT, byteArrayOutputStream)
+        val data = byteArrayOutputStream.toByteArray()
+
+        val metadata = StorageMetadata.Builder()
+                .setContentType(CONTENT_TYPE)
+                .build()
+
+        storageRef.putBytes(data, metadata)
+                .addOnSuccessListener { taskSnapshot ->
+                    val photo = Photo(uid, taskSnapshot.metadata!!.name!!, 1, 1)
+                    onSuccessListener.onSuccess(photo)
+                }
+                .addOnFailureListener(onFailureListener)
+    }
+
     fun formattedBirthday(context: Context): String? {
         val date = birthday?.toDate()
         val dateFormat = DateFormat.getMediumDateFormat(context)
@@ -120,6 +153,7 @@ object CurrentUser {
     }
 
     private fun set(document: DocumentSnapshot) {
+
         name = document.getString("name")
         birthday = document.getTimestamp("birthday")
         city = document.getString("city")
@@ -136,6 +170,18 @@ object CurrentUser {
         isDiscoverySettingOn = document.getBoolean("setting-discovery")
         isMatchNofiticationsSettingOn = document.getBoolean("setting-match-notifications")
         isMessageNotificationsSettingOn = document.getBoolean("setting-message-notifications")
+
+        val photos = document.get("photos") as List<*>
+
+        for (photo in photos) {
+
+            val photoHashMap = photo as? HashMap<*, *>
+
+            if (photoHashMap?.get("filename") == null) { return }
+
+            val newPhoto = Photo(uid, photoHashMap?.get("filename") as String, 1, 1)
+            this.photos.add(newPhoto)
+        }
 
         val genderInt = document.getLong("gender")?.toInt()
         if (genderInt != null) {

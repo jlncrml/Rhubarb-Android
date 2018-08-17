@@ -154,13 +154,11 @@
                 <TextView
                     android:id="@+id/aboutYouTextView"
                     android:layout_width="0dp"
-                    app:layout_constraintHeight_max="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="42dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:autoSizeMaxTextSize="22sp"
                     android:autoSizeTextType="uniform"
                     android:text="Hello this is about me."
                     android:textAlignment="center"

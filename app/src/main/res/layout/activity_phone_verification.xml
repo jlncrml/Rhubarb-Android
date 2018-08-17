@@ -41,7 +41,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
-        android:text="Please type in the code we sent to you."
+        android:text="Please type in the code we sent to you. Your phone may be verified automatically."
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="14sp"
@@ -63,4 +63,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/resendCodeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:text="Resend Code"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/verificationCodeEditText"
+        app:layout_constraintStart_toStartOf="@+id/verificationCodeEditText"
+        app:layout_constraintTop_toBottomOf="@+id/verificationCodeEditText" />
 </android.support.constraint.ConstraintLayout>
